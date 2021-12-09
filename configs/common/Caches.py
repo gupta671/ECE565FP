@@ -52,27 +52,42 @@ from m5.objects import *
 class L1Cache(Cache):
     assoc = 2
     tag_latency = 2
-    data_latency = 2
+    data_latency = 1
     response_latency = 2
     mshrs = 4
     tgts_per_mshr = 20
+    #replacement_policy = LRURP()
 
 class L1_ICache(L1Cache):
     is_read_only = True
     # Writeback clean lines as well
     writeback_clean = True
 
+
 class L1_DCache(L1Cache):
     pass
 
 class L2Cache(Cache):
     assoc = 8
-    tag_latency = 20
+    tag_latency = 10
     data_latency = 20
     response_latency = 20
     mshrs = 20
     tgts_per_mshr = 12
     write_buffers = 8
+    #Added 
+    #replacement_policy = SHIPRP()
+    #Added 
+
+class L3Cache(Cache): #l3cache
+    assoc = 8
+    tag_latency = 20
+    data_latency = 24
+    response_latency = 20
+    mshrs = 20
+    tgts_per_mshr = 12
+    write_buffers = 8
+    #replacement_policy = SHIPRP()
 
 class IOCache(Cache):
     assoc = 8

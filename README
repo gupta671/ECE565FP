@@ -1,37 +1,35 @@
-This is the gem5 simulator.
+Evaluating Dynamic Insertion Policy and Signature based Hit Predictor
+Rishab Kapil- DIP
+Rohan Gupta- SHiP
 
-The main website can be found at http://www.gem5.org
+We integrated both the policies DIP and SHiP in one source code, and built the system having both policies impelemented.
+This enabled us to have a one to one comparison of performance of both policies using same system.
 
-A good starting point is http://www.gem5.org/about, and for
-more information about building the simulator and getting started
-please see http://www.gem5.org/documentation and
-http://www.gem5.org/documentation/learning_gem5/introduction.
+We also copied the combined source code into two different directories, one for each partner:
+DIP: SOURCE_CODE_RIHSAB_DIP
+SHiP: SOURCE_CODE_ROHAN_SHIP
 
-To build gem5, you will need the following software: g++ or clang,
-Python (gem5 links in the Python interpreter), SCons, SWIG, zlib, m4,
-and lastly protobuf if you want trace capture and playback
-support. Please see http://www.gem5.org/documentation/general_docs/building
-for more details concerning the minimum versions of the aforementioned tools.
 
-Once you have all dependencies resolved, type 'scons
-build/<ARCH>/gem5.opt' where ARCH is one of ARM, NULL, MIPS, POWER, SPARC,
-or X86. This will build an optimized version of the gem5 binary (gem5.opt)
-for the the specified architecture. See
-http://www.gem5.org/documentation/general_docs/building for more details and
-options.
+########################### 
+	modified:   README
+	modified:   configs/common/CacheConfig.py
+	modified:   configs/common/Caches.py
+	modified:   configs/common/Options.py
+	modified:   src/mem/XBar.py
+	modified:   src/mem/cache/replacement_policies/ReplacementPolicies.py
+	modified:   src/mem/cache/replacement_policies/SConscript
+	modified:   src/mem/cache/replacement_policies/replaceable_entry.hh
+	modified:   src/mem/cache/tags/base.cc
+	modified:   src/mem/cache/tags/base_set_assoc.cc
 
-The basic source release includes these subdirectories:
-   - configs: example simulation configuration scripts
-   - ext: less-common external packages needed to build gem5
-   - src: source code of the gem5 simulator
-   - system: source for some optional system software for simulated systems
-   - tests: regression tests
-   - util: useful utility programs and files
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
 
-To run full-system simulations, you will need compiled system firmware
-(console and PALcode for Alpha), kernel binaries and one or more disk
-images.
+	OUTPUTS/
+	SOURCE_CODE_RIHSAB_DIP/
+	SOURCE_CODE_ROHAN_SHIP/
+	src/mem/cache/replacement_policies/dip_rp.cc
+	src/mem/cache/replacement_policies/dip_rp.hh
+	src/mem/cache/replacement_policies/ship_rp.cc
+	src/mem/cache/replacement_policies/ship_rp.hh
 
-If you have questions, please send mail to gem5-users@gem5.org
-
-Enjoy using gem5 and please share your modifications and extensions.
